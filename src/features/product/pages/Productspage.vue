@@ -192,14 +192,14 @@ async function handleDelete() {
 async function handleRestore(id) {
     await productsService.restore(dashStore.selectedStoreId, id)
     deletedList.value = deletedList.value.filter(p => p.id !== id)
-    dashStore.productsList = await productsService.getAll(dashStore.selectedStoreId)
+    dashStore.productsList = await productsService.getProducts(dashStore.selectedStoreId)
 }
 
 async function onSaved() {
     showAdd.value = false
     editTarget.value = null
     stockTarget.value = null
-    dashStore.productsList = await productsService.getAll(dashStore.selectedStoreId)
+    dashStore.productsList = await productsService.getProducts(dashStore.selectedStoreId)
 }
 
 async function loadDeleted() {

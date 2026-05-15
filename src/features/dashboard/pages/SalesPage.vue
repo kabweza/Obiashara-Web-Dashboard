@@ -184,7 +184,7 @@ const avgOrder = computed(() => salesList.value.length ? totalIncome.value / sal
 
 async function loadSales() {
   loading.value = true
-  salesList.value = await salesService.getSales(dashStore.selectedStoreId, { filter: filterPeriod.value })
+  salesList.value = await salesService.getAllSales(dashStore.selectedStoreId, { filter: filterPeriod.value })
   loading.value = false
 }
 

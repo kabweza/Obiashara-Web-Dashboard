@@ -101,6 +101,7 @@
             </FormField>
             <FormField :label="t('status')">
               <select v-model="form.status" class="field-input">
+                <option value="paid">Paid</option>
                 <option value="Completed">Completed</option>
                 <option value="Pending">Pending</option>
                 <option value="Cancelled">Cancelled</option>
@@ -159,7 +160,7 @@ const form = reactive({
   discount: 0,
   paymentMethod: 'Cash',
   paid: 0,
-  status: 'Completed',
+  status: 'paid',
 })
 
 const subTotal = computed(() => form.products.reduce((s, p) => s + p.price * p.quantity, 0))
